@@ -1,11 +1,18 @@
 @use 'reset';
 @use 'fonts';
 @use 'vars';
-@use '../../node_modules/swiper/swiper-bundle.css';
-@use '../../node_modules/nouislider/dist/nouislider.css';
 @use 'global';
 @use 'media';
 
+
+html {
+    scroll-behavior: smooth;
+}
+
+:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 3px;
+}
 
 h1 {
     text-align: center;
@@ -14,7 +21,7 @@ h1 {
 
 .roboto-thin {
     font-family: "Roboto", sans-serif;
-    font-weight: 100;
+    font-weight: 400;
     font-style: normal;
 }
 
@@ -54,7 +61,7 @@ body {
 
 p {
     font-size: 16px;
-    line-height: 120%;
+    line-height: 1.5;
 }
 
 .title {
@@ -62,7 +69,7 @@ p {
     font-weight: 700;
     font-size: 34px;
     text-align: center;
-    color: #fff;
+    color: #3d2306;
 }
 
 .program_title,
@@ -109,6 +116,12 @@ p {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+.h1_wrap {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
 .h1_top {
@@ -163,8 +176,17 @@ p {
 
 .social {
     display: flex;
-    gap: 24px;
+    gap: 5px;
     align-items: center;
+    margin: -7px -9.5px -7px 0;
+}
+
+.social a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
 }
 
 .social_instagramm-img {
@@ -193,7 +215,7 @@ p {
 
 .price {
     height: auto;
-    line-height: 120%;
+    line-height: 1.5;
 }
 
 .doc_container {
@@ -215,7 +237,7 @@ p {
 }
 
 .price_title-2 {
-    line-height: 120%;
+    line-height: 1.5;
     margin-bottom: 0px;
 }
 
@@ -398,7 +420,8 @@ p {
     text-align: center;
     font-weight: 800;
     font-size: 36px;
-    color: #f8c992;
+    line-height: 120%;
+    color: #8a4b0f;
 }
 
 .program_text {
@@ -407,7 +430,7 @@ p {
 }
 
 .program_text-dayplan {
-    color: #f8c992;
+    color: #8a4b0f;
     font-size: 18px;
     margin-bottom: 7px;
     font-weight: 600;
@@ -427,6 +450,7 @@ p {
     list-style: none;
     margin-bottom: 5px;
     font-size: 16px;
+    line-height: 1.5;
 }
 
 .about_us {
@@ -482,22 +506,22 @@ p {
 
 .about_us-text {
     font-size: 14px;
-    line-height: 120%;
-    color: #00000063;
+    line-height: 1.5;
+    color: #595959;
 }
 
 
 
 
 .gallery {
-    padding: 25px 0 25px;
+    padding: 0 0 25px;
     background-color: #f8c9929e;
 }
 
 .container_gallery {
     max-width: 610px;
     margin: 0 auto;
-    padding: 0 10px;
+    padding: 25px 10px 0;
 }
 
 .gallery_top {
@@ -521,7 +545,7 @@ p {
 }
 
 .gallery_title-inner {
-    color: #fff;
+    color: #3d2306;
 }
 
 .gallery_item {
@@ -607,13 +631,21 @@ button {
     display: flex;
     align-items: center;
     gap: 17px;
-    margin-bottom: 17px;
+    width: fit-content;
+    min-height: 44px;
+    margin-bottom: 3px;
+}
+
+.social_title {
+    font-size: 16px;
+    line-height: 120%;
 }
 
 .footer_title {
     font-size: 20px;
     line-height: 140%;
-    color: #fff;
+    font-weight: 400;
+    color: #3d2306;
     margin: 15px 0;
 }
 
@@ -625,31 +657,34 @@ button {
 
 .social_link:hover,
 .tiktok_link:hover {
-    color: #fff;
+    color: #6b3a0a;
+    text-decoration: underline;
 }
 
 #myBtn {
-    width: 40px;
-    line-height: 40px;
-    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
     z-index: 999;
     cursor: pointer;
     opacity: 0;
-    transition: all 0.4s ease-in;
-    -o-transition: all 0.4s ease-in;
-    -webkit-transition: all 0.4s ease-in;
-    -moz-transition: all 0.4s ease-in;
+    visibility: hidden;
+    transition: opacity .4s ease-in, visibility 0s .4s;
     position: fixed;
     bottom: 50px;
     right: 0;
     background-color: transparent;
-    color: #a5a5a5;
-    text-align: center;
-    font-size: 40px;
-    font-weight: bold;
-    text-decoration: none;
+    color: #555;
+}
+
+#myBtn.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0s;
 }
 
 #myBtn:hover {
-    color: #6a6a6a;
+    color: #222;
 }
